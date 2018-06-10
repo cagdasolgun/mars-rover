@@ -20,5 +20,12 @@ Feature: Mars rover movement
   @Right
   Scenario: Mars rover should turn right when recieved R(Right) command
     Given Current position is 1,1 and facing "S"
-    When I execute Right commant
+    When I execute Right command
     Then Mars rover positions should be 1,1 and facing "W"
+    
+  @Plateu
+  Scenario: Mars rover can not go further than plateu boundries
+  	Given Current position is 0,0 with facing "S" and plateu size is 1,1
+  	When I execute MM command 
+  	Then Mars rover should stop at the edge
+  	

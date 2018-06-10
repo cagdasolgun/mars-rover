@@ -9,17 +9,23 @@ public class Rover {
 	private int xAxis;
 	private int yAxis;
 	private String facing;
-	
+	private final Plateu plateu;
+
 	public final Move move;
 	public final TurnLeft turnLeft;
 	public final TurnRight turnRight;
 
-	public Rover() {
+	public Rover(int xAxis, int yAxis, String facing, int xPlateu, int yPlateu) {
 		move = new Move(this);
 		turnLeft = new TurnLeft(this);
 		turnRight = new TurnRight(this);
+
+		plateu = new Plateu(xPlateu, yPlateu);
+		this.setFacing(facing);
+		this.setxAxis(xAxis);
+		this.setyAxis(yAxis);
 	}
-	
+
 	public String getFacing() {
 		return facing;
 	}
@@ -42,6 +48,10 @@ public class Rover {
 
 	public void setyAxis(int yAxis) {
 		this.yAxis = yAxis;
+	}
+
+	public Plateu getPlateu() {
+		return plateu;
 	}
 
 }

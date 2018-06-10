@@ -19,16 +19,25 @@ public class Move implements Command {
 		logger.info("Move command is being operated on rover located in {},{}", rover.getxAxis(), rover.getyAxis());
 
 		String f = this.rover.getFacing();
+		int finalPosition;
 		if (f.equals("N")) {
-			this.rover.setyAxis(this.rover.getyAxis() - 1);
+			finalPosition = this.rover.getyAxis() + 1;
+			if (rover.getPlateu().getyAxis() >= finalPosition)
+				this.rover.setyAxis(finalPosition);
 		} else if (f.equals("S")) {
-			this.rover.setyAxis(this.rover.getyAxis() + 1);
+			finalPosition = this.rover.getyAxis() - 1;
+			if (rover.getPlateu().getyAxis() >= finalPosition)
+				this.rover.setyAxis(finalPosition);
 		} else if (f.equals("E")) {
-			this.rover.setxAxis(this.rover.getxAxis() + 1);
+			finalPosition = this.rover.getxAxis() + 1;
+			if (rover.getPlateu().getxAxis() >= finalPosition)
+				this.rover.setxAxis(finalPosition);
 		} else if (f.equals("W")) {
-			this.rover.setxAxis(this.rover.getxAxis() - 1);
+			finalPosition = this.rover.getxAxis() - 1;
+			if (rover.getPlateu().getxAxis() >= finalPosition)
+				this.rover.setxAxis(finalPosition);
 		}
-		logger.info("Final position of rover is {},{}", rover.getxAxis(), rover.getyAxis());
+		logger.info("Final position of rover is {},{} and facing {}", rover.getxAxis(), rover.getyAxis(),rover.getFacing());
 
 	}
 

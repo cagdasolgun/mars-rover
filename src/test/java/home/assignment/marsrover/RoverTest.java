@@ -16,10 +16,7 @@ public class RoverTest {
 
 	@Given("^Current position is (\\d+),(\\d+) and facing \"([^\"]*)\"$")
 	public void current_position_is_and_facing(int xAxis, int yAxis, String facing) throws Throwable {
-		rover = new Rover();
-		rover.setxAxis(xAxis);
-		rover.setyAxis(yAxis);
-		rover.setFacing(facing);
+		rover = new Rover(xAxis,yAxis,facing,7,7);
 	}
 
 	@When("^I execute Move command$")
@@ -34,7 +31,7 @@ public class RoverTest {
 		controlCenter.excute();
 	}
 
-	@When("^I execute Right commant$")
+	@When("^I execute Right command$")
 	public void i_execute_Right_commant() throws Throwable {
 		controlCenter.setCommand(rover.turnRight);
 		controlCenter.excute();

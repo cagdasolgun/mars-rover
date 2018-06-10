@@ -32,7 +32,7 @@ public class TurnLeft implements Command {
 			this.rover.setFacing("S");
 		}
 		
-		logger.info("Final position of rover is {},{}", rover.getxAxis(), rover.getyAxis());
+		logger.info("Final position of rover is {},{} and facing {}", rover.getxAxis(), rover.getyAxis(),rover.getFacing());
 	}
 
 }
