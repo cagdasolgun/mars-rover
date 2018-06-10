@@ -1,19 +1,26 @@
 package home.assignment.marsrover.model;
 
+import home.assignment.marsrover.commands.Command;
+import home.assignment.marsrover.commands.Move;
+import home.assignment.marsrover.commands.TurnLeft;
+import home.assignment.marsrover.commands.TurnRight;
+
 public class Rover {
 
 	private int xAxis;
 	private int yAxis;
 	private String facing;
+	
+	public final Move move;
+	public final TurnLeft turnLeft;
+	public final TurnRight turnRight;
 
 	public Rover() {
-
+		move = new Move(this);
+		turnLeft = new TurnLeft(this);
+		turnRight = new TurnRight(this);
 	}
 	
-	public void operate(String command) {
-		
-	}
-
 	public String getFacing() {
 		return facing;
 	}
