@@ -1,6 +1,5 @@
 package home.assignment.marsrover.model;
 
-import home.assignment.marsrover.commands.Command;
 import home.assignment.marsrover.commands.Move;
 import home.assignment.marsrover.commands.TurnLeft;
 import home.assignment.marsrover.commands.TurnRight;

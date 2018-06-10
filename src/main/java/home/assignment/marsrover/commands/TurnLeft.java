@@ -1,8 +1,13 @@
 package home.assignment.marsrover.commands;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import home.assignment.marsrover.model.Rover;
 
 public class TurnLeft implements Command {
+	
+	private static final Logger logger = LogManager.getLogger(TurnLeft.class);
 
 	private final Rover rover;
 
@@ -12,6 +17,8 @@ public class TurnLeft implements Command {
 
 	@Override
 	public void operate() {
+		
+		logger.info("Turn left command is being operated on rover located in {},{}", rover.getxAxis(), rover.getyAxis());
 
 		String f = this.rover.getFacing();
 
@@ -24,6 +31,8 @@ public class TurnLeft implements Command {
 		} else if (f.equals("W")) {
 			this.rover.setFacing("S");
 		}
+		
+		logger.info("Final position of rover is {},{}", rover.getxAxis(), rover.getyAxis());
 	}
 
 }
