@@ -3,6 +3,7 @@ package home.assignment.marsrover.model;
 import home.assignment.marsrover.commands.Move;
 import home.assignment.marsrover.commands.TurnLeft;
 import home.assignment.marsrover.commands.TurnRight;
+import javafx.util.Pair;
 
 public class Rover {
 
@@ -10,17 +11,18 @@ public class Rover {
 	private int yAxis;
 	private String facing;
 	private final Plateu plateu;
+	private Pair myRIPpoint;
 
 	public final Move move;
 	public final TurnLeft turnLeft;
 	public final TurnRight turnRight;
 
-	public Rover(int xAxis, int yAxis, String facing, int xPlateu, int yPlateu) {
+	public Rover(int xAxis, int yAxis, String facing, Plateu plateu) {
 		move = new Move(this);
 		turnLeft = new TurnLeft(this);
 		turnRight = new TurnRight(this);
 
-		plateu = new Plateu(xPlateu, yPlateu);
+		this.plateu = plateu;
 		this.setFacing(facing);
 		this.setxAxis(xAxis);
 		this.setyAxis(yAxis);
@@ -54,4 +56,11 @@ public class Rover {
 		return plateu;
 	}
 
+    public Pair getMyRIPpoint() {
+        return myRIPpoint;
+    }
+
+    public void setMyRIPpoint(Pair myRIPpoint) {
+        this.myRIPpoint = myRIPpoint;
+    }
 }

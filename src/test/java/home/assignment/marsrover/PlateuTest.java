@@ -16,14 +16,14 @@ public class PlateuTest {
 
 	@Given("^Current position is (\\d+),(\\d+) with facing \"([^\"]*)\" and plateu size is (\\d+),(\\d+)$")
 	public void current_position_is_with_facing_and_plateu_size_is(int xAxis, int yAxis, String facing, int xPlateu, int yPlateu) throws Throwable {
-		rover = new Rover(xAxis, yAxis, facing, xPlateu, yPlateu);
+		//rover = new Rover(xAxis, yAxis, facing, xPlateu, yPlateu);
 	}
 
 	@When("^I execute MM command$")
 	public void i_execute_MM_command() throws Throwable {
 		controlCenter.setCommand(rover.move);
-		controlCenter.excute();
-		controlCenter.excute();
+		controlCenter.excute(rover);
+		controlCenter.excute(rover);
 	}
 
 	@Then("^Mars rover should stop at the edge$")

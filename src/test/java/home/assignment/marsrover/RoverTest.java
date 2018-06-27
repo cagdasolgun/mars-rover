@@ -16,25 +16,25 @@ public class RoverTest {
 
 	@Given("^Current position is (\\d+),(\\d+) and facing \"([^\"]*)\"$")
 	public void current_position_is_and_facing(int xAxis, int yAxis, String facing) throws Throwable {
-		rover = new Rover(xAxis,yAxis,facing,7,7);
+		//rover = new Rover(xAxis,yAxis,facing,7,7);
 	}
 
 	@When("^I execute Move command$")
 	public void i_execute_Move_command() throws Throwable {
 		controlCenter.setCommand(rover.move);
-		controlCenter.excute();
+		controlCenter.excute(rover);
 	}
 
 	@When("^I execute Left command$")
 	public void i_execute_Left_command() throws Throwable {
 		controlCenter.setCommand(rover.turnLeft);
-		controlCenter.excute();
+		controlCenter.excute(rover);
 	}
 
 	@When("^I execute Right command$")
 	public void i_execute_Right_commant() throws Throwable {
 		controlCenter.setCommand(rover.turnRight);
-		controlCenter.excute();
+		controlCenter.excute(rover);
 	}
 
 	@Then("^Mars rover positions should be (\\d+),(\\d+) and facing \"([^\"]*)\"$")

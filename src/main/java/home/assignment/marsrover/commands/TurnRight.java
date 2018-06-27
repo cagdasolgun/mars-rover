@@ -7,34 +7,35 @@ import home.assignment.marsrover.model.Rover;
 
 public class TurnRight implements Command {
 
-	private static final Logger logger = LogManager.getLogger(TurnRight.class);
+    private static final Logger logger = LogManager.getLogger(TurnRight.class);
 
-	private final Rover rover;
+    private final Rover rover;
 
-	public TurnRight(Rover rover) {
-		this.rover = rover;
-	}
+    public TurnRight(Rover rover) {
+        this.rover = rover;
+    }
 
-	@Override
-	public void operate() {
+    @Override
+    public void operate() {
 
-		logger.info("Turn right command is being operated on rover located in {},{}", rover.getxAxis(),
-				rover.getyAxis());
+        logger.info("Turn right command is being operated on rover located in {},{}", rover.getxAxis(),
+                rover.getyAxis());
 
-		String f = this.rover.getFacing();
+        String f = this.rover.getFacing();
 
-		if (f.equals("N")) {
-			this.rover.setFacing("E");
-		} else if (f.equals("S")) {
-			this.rover.setFacing("W");
-		} else if (f.equals("E")) {
-			this.rover.setFacing("S");
-		} else if (f.equals("W")) {
-			this.rover.setFacing("N");
-		}
+        if (f.equals("N")) {
+            this.rover.setFacing("E");
+        } else if (f.equals("S")) {
+            this.rover.setFacing("W");
+        } else if (f.equals("E")) {
+            this.rover.setFacing("S");
+        } else if (f.equals("W")) {
+            this.rover.setFacing("N");
+        }
 
-		logger.info("Final position of rover is {},{} and facing {}", rover.getxAxis(), rover.getyAxis(),rover.getFacing());
+        logger.info("Final position of rover is {},{} and facing {}", rover.getxAxis(), rover.getyAxis(), rover.getFacing());
 
-	}
+
+    }
 
 }
